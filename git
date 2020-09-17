@@ -1,0 +1,47 @@
+touch code.text 
+vi code.text
+git add code.text
+git commit -m '版本1'
+git log  查看版本信息  
+想回到之前的某一个版本 git reset-hard HEAD^
+git reflog 查看之前操作记录
+
+工作区 git add  -> 版本库（暂存区->git commit HEAD(master->版本2->版本1)）
+
+撤销修改 
+	git checkout -- <文件>
+	
+	git reset HEAD <file> 可以把暂存区的修改撤销掉重新放回工作区
+	
+	
+总结
+场景一改乱了工作区某个文件内容，想之间丢弃工作区修改， git checkout -- file 
+
+场景二不但该乱了工作区某个文件内容， 还添加到了暂存区 第一步 git reset HEDA<file>   第二部按场景一操作
+
+对比文件不同
+比如要对比工作区code 和 HEAD版本code 不同
+git diff HEAD --conde
+
+要对比俩个版本文件不同 
+git dif HEAD HEAD^ --code.text
+
+rm code.text
+
+回退 git checkout --code.text
+
+
+vi.gitconfig
+下载整个文件
+git clone ssh地址
+推送
+git push origin 分支名称
+列子
+git push oirgin smart
+本地分支跟踪服务器分支
+git branch --set-upstream-to=origin/远程分支名称 本地分支名称
+git status
+从远程分支拉去代码 
+git pull origin 分支名称 
+
+从远程仓库下载单个文件     https://github.com/your_name/xxx.git “指定文件夹名称”
